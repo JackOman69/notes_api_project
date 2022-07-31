@@ -35,8 +35,8 @@ async def create_note(note: Note):
     '''
     add_note(note.note_name, note.note_description, note.tags)
     result = {
-        "result": "Successful!",
-        "Your note": get_id_note()
+        "result": "OK",
+        "note_id": get_id_note()
     }
     return result
 
@@ -50,10 +50,10 @@ async def note_into_db(note: Note, note_id: int):
 @app.delete(BASE_URL + "{note_id}")
 async def delete_from_db(note_id: int):
     if check_deleted_note(note_id):
-        return "This note has been already deleted or doesn't exist at all"
+        return "DELETED"
     else:
         delete_note(note_id)
-        return "Successful!"
+        return "OK"
 
 
 # https://fastapi.tiangolo.com/tutorial/debugging/
