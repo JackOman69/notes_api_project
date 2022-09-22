@@ -27,12 +27,6 @@ async def get_note(note_id: int):
 
 @app.post(BASE_URL)
 async def create_note(note: Note):
-    '''
-    Понимаешь блин блять,
-    Тут не получится просто взять из note нужную нам колоночку
-    Нам нужно выполнение отдельной функции под это дело, чтобы не было никаких ошибок
-    У меня не получилось твоим решением, потому что выдавало ошибку, оставлю так
-    '''
     add_note(note.note_name, note.note_description, note.tags)
     result = {
         "result": "OK",
